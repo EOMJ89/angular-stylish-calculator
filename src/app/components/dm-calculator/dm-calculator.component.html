@@ -1,0 +1,41 @@
+<!-- <p>dm-calculator works!</p> -->
+<div class="py-2 vh-100 d-flex align-items-center mx-2">
+    <div class="container align-middle border rounded-lg bg-secondary pt-3">
+        <div class="text-right">
+            <div class="alert alert-dark min-vh-25">
+                <div class="invisible" *ngIf="(this.num1 == '' &&
+                                            this.num2 == '' &&
+                                            this.operation == '')">
+                                            hidden filler
+                                        </div>
+                {{this.num1}} {{this.operation}} {{this.num2}}
+            </div>
+            <div class="alert alert-dark" role="alert" *ngIf="!this.showWarning">
+                <div class="invisible" *ngIf="this.result == undefined">
+                    hidden filler
+                </div>
+                {{this.result}}
+            </div>
+            <div class="alert alert-danger" *ngIf="this.showWarning">
+                Impossible to Divide By Zero.
+            </div>
+        </div>
+            <table class="table table-borderless">
+            <tr *ngFor="let row of numbers">
+                <td *ngFor="let cell of row">
+                    <button type="button" class="btn btn-block" [ngClass]="{
+                        'btn-warning' : cell == 'c',
+                        'btn-info': cell == '+' || cell == '-' || cell == '*' || cell == '/',
+                        'btn-light': cell != '+' && cell != '-' && cell != '*' && cell != '/' && cell != 'c'
+                    }" (click)="emitSendCharacter(cell)">{{cell}}</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button type="button" class="btn btn-block btn-success"
+                        (click)="emitSendCharacter('=')">=</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
