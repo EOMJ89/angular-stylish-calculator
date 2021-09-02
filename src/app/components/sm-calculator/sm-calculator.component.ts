@@ -47,7 +47,7 @@ export class SmCalculatorComponent implements OnInit {
     if(this.triedDivisionByZero == true) {
       this.triedDivisionByZero = false;
       this._resetVariables();
-
+      
       if(character == '+' || character == '-' ||
          character == '*' || character == '/' ||
          character == '=') {
