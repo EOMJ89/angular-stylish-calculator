@@ -48,7 +48,9 @@ export class SmCalculatorComponent implements OnInit {
       this.triedDivisionByZero = false;
       this._resetVariables();
 
-      if(character == '=') {
+      if(character == '+' || character == '-' ||
+         character == '*' || character == '/' ||
+         character == '=') {
         return;
       }
     }
